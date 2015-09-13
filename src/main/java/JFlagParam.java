@@ -22,6 +22,11 @@ public interface JFlagParam
     Object getDefaultValue();
 
     /**
+     * Return true if the default value is not null
+     */
+    boolean hasDefaultValue();
+
+    /**
      * The type of the parameter
      */
     Type getType();

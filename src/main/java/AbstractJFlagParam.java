@@ -30,4 +30,13 @@ public abstract class AbstractJFlagParam implements JFlagParam
     {
         return usage;
     }
+
+    /**
+     * Return true if the default value is not null
+     */
+    @Override
+    public boolean hasDefaultValue()
+    {
+        return getDefaultValue() != null;
+    }
 }
