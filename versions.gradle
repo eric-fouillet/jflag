@@ -1,0 +1,4 @@
+ext.versions = [
+    junit: '4.12',
+    assertj: '3.1.0'
+]
