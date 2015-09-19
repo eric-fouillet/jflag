@@ -1,10 +1,11 @@
+package org.jflags.core;
+
 import java.util.LinkedHashMap;
-import java.util.stream.Stream;
 
 /**
- * The main class for JFlag.
+ * The main class for org.jflags.core.JFlag.
  * <p/>
- * JFlag allows to define and parse command line parameters.
+ * org.jflags.core.JFlag allows to define and parse command line parameters.
  * <p/>
  * Multiple parameter definition styles and parameter types are
  * supported.
@@ -28,7 +29,7 @@ public class JFlag
         if (paramSet.containsKey( name )) {
             return paramSet.get( name );
         } else {
-            throw new JFlagException( "No parameter registered with name " + name );
+            return AbstractJFlagParam.NONE;
         }
     }
 
@@ -53,6 +54,17 @@ public class JFlag
     }
 
     /**
+    * Create a new Integer parameter
+    * @param name the name of the parameter
+    * @param defaultValue the default value of the parameter
+    * @param usage the usage text for this parameter
+    * @throws JFlagException if any issue occurs when registering the parameter
+    */
+    public void intParam(String name, Integer defaultValue, String usage) throws JFlagException {
+        addParam( new IntJFlag( name, defaultValue, usage ) );
+    }
+
+    /**
      * Parse the parameters according to their definition
      * @param args the arguments of the program
      */
@@ -62,8 +74,9 @@ public class JFlag
             throw new JFlagException( "Unexpected number of parameters. Usage " + getUsage() );
         }
         if (paramSet.size() > 0) {
+            int i = 0;
             for ( JFlagParam param : paramSet.values() ) {
-                // TODO
+                param.parse(args[i]);
             }
         }
     }

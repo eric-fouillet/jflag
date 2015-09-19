@@ -1,3 +1,5 @@
+package org.jflags.core;
+
 /**
  * Generic exception for flag parameters
  */

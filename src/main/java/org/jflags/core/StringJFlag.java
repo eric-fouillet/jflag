@@ -1,3 +1,5 @@
+package org.jflags.core;
+
 import java.lang.reflect.Type;
 
 /**
@@ -9,6 +11,8 @@ public class StringJFlag extends AbstractJFlagParam
     private String defaultValue;
     private String value;
 
+    public StringJFlag() {}
+
     public StringJFlag(String name, String defaultValue, String usage) {
         super(name, usage);
         this.defaultValue = defaultValue;
@@ -18,7 +22,7 @@ public class StringJFlag extends AbstractJFlagParam
      * The value of the parameter
      */
     @Override
-    public Object getValue()
+    public String getValue()
     {
         return value;
     }
@@ -27,7 +31,7 @@ public class StringJFlag extends AbstractJFlagParam
      * The default value of the parameter
      */
     @Override
-    public Object getDefaultValue()
+    public String getDefaultValue()
     {
         return defaultValue;
     }
@@ -41,4 +45,9 @@ public class StringJFlag extends AbstractJFlagParam
         return String.class;
     }
 
+    @Override
+    public void parse( String param )
+    {
+        value = param;
+    }
 }

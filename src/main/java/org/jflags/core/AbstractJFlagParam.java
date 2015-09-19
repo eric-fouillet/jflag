@@ -1,4 +1,4 @@
-import java.lang.reflect.Type;
+package org.jflags.core;
 
 /**
  * Base class for all parameters implementations
@@ -7,6 +7,10 @@ public abstract class AbstractJFlagParam implements JFlagParam
 {
     private String name;
     private String usage;
+
+    public static final JFlagParam NONE = new StringJFlag();
+
+    public AbstractJFlagParam() {}
 
     public AbstractJFlagParam(String name, String usage) {
         this.name = name;

@@ -1,3 +1,5 @@
+package org.jflags.core;
+
 import java.lang.reflect.Type;
 
 /**
@@ -35,4 +37,10 @@ public interface JFlagParam
      * The help text of the parameter
      */
     String getUsage();
+
+    /**
+     * Parse a parameter, passed as a string
+     * TODO handle "-" options
+     */
+    void parse(String param) throws JFlagException;
 }
